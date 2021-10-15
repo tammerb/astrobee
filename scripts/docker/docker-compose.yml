@@ -1,0 +1,34 @@
+version: '2'
+services:
+  ros:
+    image: tammer/astrobee:latest-ubuntu20.04
+    container_name: astrobee_sim_container
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: ./bag
+        target: /root/bag
+    environment:
+      - DISPLAY=novnc:0.0
+    depends_on:
+      - novnc
+    networks:
+      - x11
+    # logging: # uncomment to hide the logs
+    #   driver: none 
+
+  novnc:
+    image: theasp/novnc:latest
+    environment:
+      # Adjust to your screen size
+      - DISPLAY_WIDTH=1920
+      - DISPLAY_HEIGHT=958
+      - RUN_XTERM=no
+    ports:
+      - "8080:8080"
+    networks:
+      - x11
+networks:
+  x11:
+  # http://localhost:8080/vnc_auto.html

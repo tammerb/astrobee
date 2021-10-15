@@ -62,7 +62,7 @@ docker run -it --rm --name astrobee \
         --env="DISPLAY" \
         --user="astrobee" \
         --gpus all \
-      astrobee/astrobee:latest-ubuntu16.04 \
+      tammer/astrobee:latest-ubuntu16.04 \
     /astrobee_init.sh roslaunch astrobee sim.launch dds:=false
 elif [ "$os" = "bionic" ]; then
 docker run -it --rm --name astrobee \
@@ -71,7 +71,7 @@ docker run -it --rm --name astrobee \
         --env="XAUTHORITY=${XAUTH}" \
         --env="DISPLAY" \
         --user="astrobee" \
-      astrobee/astrobee:latest-ubuntu18.04 \
+      tammer/astrobee:latest-ubuntu18.04 \
     /astrobee_init.sh roslaunch astrobee sim.launch dds:=false
 elif [ "$os" = "focal" ]; then
 docker run -it --rm --name astrobee \
@@ -80,6 +80,6 @@ docker run -it --rm --name astrobee \
         --env="XAUTHORITY=${XAUTH}" \
         --env="DISPLAY" \
         --user="astrobee" \
-      astrobee/astrobee:latest-ubuntu20.04 \
+      tammer/astrobee:latest-ubuntu20.04 \
     /astrobee_init.sh roslaunch astrobee sim.launch dds:=false
 fi
